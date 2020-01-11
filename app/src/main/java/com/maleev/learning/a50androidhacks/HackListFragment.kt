@@ -21,11 +21,18 @@ class HackListFragment : Fragment() {
         fun newInstance() = HackListFragment()
     }
 
+    private val toFragmentInfo: KClass<*>.() -> FragmentInfo = {
+        FragmentInfo(getNumber(), getDescription()) {
+            companionObject
+                ?.functions
+                ?.first { function -> function.name == "newInstance" }
+                ?.call(companionObjectInstance) as Fragment
+        }
+    }
+
     private val hacks = listOf(
         Hack1Fragment::class
-    ).map {
-        it.toFragmentInfo()
-    }
+    ).map(toFragmentInfo)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,15 +66,6 @@ class HackListFragment : Fragment() {
         val description: String,
         val creator: () -> Fragment
     )
-
-    private fun KClass<*>.toFragmentInfo(): FragmentInfo {
-        return FragmentInfo(getNumber(), getDescription()) {
-            companionObject
-                ?.functions
-                ?.first { function -> function.name == "newInstance" }
-                ?.call(companionObjectInstance) as Fragment
-        }
-    }
 
     private fun KClass<*>.getDescription(): String {
         return annotations.filterIsInstance<Description>().firstOrNull()?.description ?: ""
