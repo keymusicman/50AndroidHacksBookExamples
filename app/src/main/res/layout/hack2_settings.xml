@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutSettings"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/btn_include_1_increase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Increase counter for first included layout"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btn_include_2_increase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Increase counter for second included layout"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btn_view_stub_load"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lazy load layout"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>

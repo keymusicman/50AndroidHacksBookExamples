@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@id/layoutSettings"
+    android:gravity="center_horizontal|center_vertical"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:weightSum="1">
+
+    <include
+        android:id="@+id/included_layout_1"
+        layout="@layout/hack2_included_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <include
+        android:id="@+id/included_layout_2"
+        layout="@layout/hack2_included_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@id/included_layout_2"
+        android:layout_below="@id/included_layout_1"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="There is lazy-loading view next to this text.\nClick 'Lazy load layout' to load it. "
+            android:textAlignment="center"
+            tools:ignore="HardcodedText" />
+
+        <ViewStub
+            android:id="@+id/viewStub"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout="@layout/hack2_lazy_load_layout" />
+    </LinearLayout>
+
+</RelativeLayout>

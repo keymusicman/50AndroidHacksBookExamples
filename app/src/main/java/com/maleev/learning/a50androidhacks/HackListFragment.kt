@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.maleev.learning.a50androidhacks.hacks.Hack1Fragment
 import com.maleev.learning.a50androidhacks.hacks.Hack2Fragment
-import com.maleev.learning.a50androidhacks.utils.annotations.Description
-import com.maleev.learning.a50androidhacks.utils.annotations.Number
+import com.maleev.learning.a50androidhacks.utils.annotations.HackDescription
+import com.maleev.learning.a50androidhacks.utils.annotations.HackNumber
 import com.maleev.learning.a50androidhacks.utils.genericAdapter
 import kotlin.reflect.KClass
 import kotlin.reflect.full.companionObject
@@ -70,10 +70,10 @@ class HackListFragment : Fragment() {
     )
 
     private fun KClass<*>.getDescription(): String {
-        return annotations.filterIsInstance<Description>().firstOrNull()?.description ?: ""
+        return annotations.filterIsInstance<HackDescription>().firstOrNull()?.description ?: ""
     }
 
     private fun KClass<*>.getNumber(): Int {
-        return (annotations.filterIsInstance<Number>().firstOrNull())?.number ?: 0
+        return (annotations.filterIsInstance<HackNumber>().firstOrNull())?.number ?: 0
     }
 }

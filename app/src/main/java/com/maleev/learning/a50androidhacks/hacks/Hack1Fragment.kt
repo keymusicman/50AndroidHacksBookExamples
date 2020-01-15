@@ -1,32 +1,24 @@
 package com.maleev.learning.a50androidhacks.hacks
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.SeekBar
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import com.maleev.learning.a50androidhacks.R
-import com.maleev.learning.a50androidhacks.utils.annotations.Description
-import com.maleev.learning.a50androidhacks.utils.annotations.Number
+import com.maleev.learning.a50androidhacks.utils.annotations.HackDescription
+import com.maleev.learning.a50androidhacks.utils.annotations.HackNumber
 
-@Number(1)
-@Description("Centering Views using weights")
-class Hack1Fragment : Fragment() {
+@HackNumber(1)
+@HackDescription("Centering Views using weights")
+class Hack1Fragment : BaseHackFragment() {
+
+    override val contentLayoutId: Int = R.layout.hack1_content
+    override val settingsLayoutId: Int = R.layout.hack1_settings
 
     private lateinit var element: View
     private lateinit var sbWeight: SeekBar
     private lateinit var tvWeight: TextView
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.hack1_fragment, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,7 +43,8 @@ class Hack1Fragment : Fragment() {
     }
 
     private fun setWeight(weight: Float) {
-        (element.layoutParams as LinearLayout.LayoutParams).weight = weight
+        element.layoutParams =
+            (element.layoutParams as LinearLayout.LayoutParams).apply { this.weight = weight }
         tvWeight.text = "$weight"
     }
 
