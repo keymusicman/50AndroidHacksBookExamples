@@ -27,6 +27,11 @@
             android:layout_width="150dp"
             android:layout_height="200dp"
             android:background="@color/element_3_background" />
+
+        <View
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:background="@color/element_4_background" />
     </com.maleev.learning.a50androidhacks.hacks.CascadeLayout>
 
 </LinearLayout>
