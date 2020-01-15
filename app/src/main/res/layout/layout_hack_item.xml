@@ -24,4 +24,24 @@
         android:layout_marginLeft="20dp"
         tools:text="Create something ......" />
 
+    <TextView
+        android:id="@+id/tvExpandBottomLine"
+        style="@style/TextAppearance.MaterialComponents.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="6dp"
+        android:text="Show the bottom line"
+        android:textColor="#0B3F06"
+        android:visibility="gone"
+        tools:ignore="HardcodedText"
+        tools:visibility="visible" />
+
+    <FrameLayout
+        android:id="@+id/layoutBottomLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E4E4E4" />
+
 </LinearLayout>
