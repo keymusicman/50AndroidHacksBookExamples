@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.maleev.learning.a50androidhacks.hacks.Hack1Fragment
 import com.maleev.learning.a50androidhacks.hacks.Hack2Fragment
+import com.maleev.learning.a50androidhacks.hacks.Hack3Fragment
 import com.maleev.learning.a50androidhacks.utils.annotations.HackDescription
 import com.maleev.learning.a50androidhacks.utils.annotations.HackNumber
 import com.maleev.learning.a50androidhacks.utils.genericAdapter
@@ -33,7 +34,8 @@ class HackListFragment : Fragment() {
 
     private val hacks = listOf(
         Hack1Fragment::class,
-        Hack2Fragment::class
+        Hack2Fragment::class,
+        Hack3Fragment::class
     ).map(toFragmentInfo)
 
     override fun onCreateView(

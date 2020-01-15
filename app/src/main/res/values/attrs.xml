@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CascadeLayout">
+        <attr name="horizontalSpacing" format="dimension">20dp</attr>
+        <attr name="verticalSpacing" format="dimension">30dp</attr>
+    </declare-styleable>
+
+    <declare-styleable name="CascadeLayout_LayoutParams">
+        <attr name="layout_horizontal_spacing" format="dimension" />
+        <attr name="layout_vertical_spacing" format="dimension" />
+    </declare-styleable>
+</resources>

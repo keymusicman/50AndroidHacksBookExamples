@@ -11,5 +11,5 @@
         android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_weight="0.5"
-        android:background="@color/element_background" />
+        android:background="@color/element_1_background" />
 </LinearLayout>
