@@ -1,4 +1,4 @@
-package com.maleev.learning.a50androidhacks.hacks
+package com.maleev.learning.a50androidhacks.hacks.hack3
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,10 +6,19 @@ import android.view.View
 import android.widget.RadioButton
 import android.widget.SeekBar
 import com.maleev.learning.a50androidhacks.R
+import com.maleev.learning.a50androidhacks.hacks.BaseHackFragment
+import com.maleev.learning.a50androidhacks.utils.annotations.HackBottomLineText
 import com.maleev.learning.a50androidhacks.utils.annotations.HackDescription
 import com.maleev.learning.a50androidhacks.utils.annotations.HackNumber
 
 @HackNumber(3)
+@HackBottomLineText(
+    "Using custom Views and ViewGroups is an excellent way to organize your application " +
+            "layouts. Customizing components will also allow you to provide custom behaviors. The " +
+            "next time you need to create a complex layout, decide whether or not it’d be better to " +
+            "use a custom ViewGroup. It might be more work at the outset, but the end result is " +
+            "worth it. "
+)
 @HackDescription("Creating a custom ViewGroup")
 class Hack3Fragment : BaseHackFragment() {
     override val contentLayoutId: Int = R.layout.hack3_content

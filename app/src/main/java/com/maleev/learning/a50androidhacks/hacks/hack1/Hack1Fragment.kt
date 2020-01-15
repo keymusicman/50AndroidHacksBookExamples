@@ -1,4 +1,4 @@
-package com.maleev.learning.a50androidhacks.hacks
+package com.maleev.learning.a50androidhacks.hacks.hack1
 
 import android.os.Bundle
 import android.view.View
@@ -6,10 +6,19 @@ import android.widget.LinearLayout
 import android.widget.SeekBar
 import android.widget.TextView
 import com.maleev.learning.a50androidhacks.R
+import com.maleev.learning.a50androidhacks.hacks.BaseHackFragment
+import com.maleev.learning.a50androidhacks.utils.annotations.HackBottomLineText
 import com.maleev.learning.a50androidhacks.utils.annotations.HackDescription
 import com.maleev.learning.a50androidhacks.utils.annotations.HackNumber
 
 @HackNumber(1)
+@HackBottomLineText(
+    "Using LinearLayout’s weight is important when you want to distribute the available " +
+            "space based on a percentage rather than using hard-coded sizes. If you’re targeting " +
+            "Honeycomb and using Fragments, you’ll notice that most of the examples place the " +
+            "different Fragments in a layout using weights. Understanding how to use weights will " +
+            "add an important tool to your toolbox. "
+)
 @HackDescription("Centering Views using weights")
 class Hack1Fragment : BaseHackFragment() {
 

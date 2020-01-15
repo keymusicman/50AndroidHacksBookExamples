@@ -35,6 +35,7 @@ class HackListAdapter(
         holder.tvHackDescription.text = hack.hackInfo.description
 
         holder.tvExpandBottomLine.hide()
+        holder.layoutBottomLine.hide()
         holder.tvExpandBottomLine.setOnClickListener(null)
 
         holder.layoutBottomLine.removeAllViews()

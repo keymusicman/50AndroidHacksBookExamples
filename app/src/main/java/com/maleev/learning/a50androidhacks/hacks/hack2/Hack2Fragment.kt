@@ -1,14 +1,27 @@
-package com.maleev.learning.a50androidhacks.hacks
+package com.maleev.learning.a50androidhacks.hacks.hack2
 
 import android.os.Bundle
 import android.view.View
 import android.view.ViewStub
 import android.widget.TextView
 import com.maleev.learning.a50androidhacks.R
+import com.maleev.learning.a50androidhacks.hacks.BaseHackFragment
+import com.maleev.learning.a50androidhacks.utils.annotations.HackBottomLineText
 import com.maleev.learning.a50androidhacks.utils.annotations.HackDescription
 import com.maleev.learning.a50androidhacks.utils.annotations.HackNumber
 
 @HackNumber(2)
+@HackBottomLineText(
+    "The <include /> tag is a useful tool to order your layout. If you already created something with the Fragment class, you’ll notice that using includes is almost the same " +
+            "thing. As you need to do with fragments, your complete view can be a set of includes.\n" +
+            " The <include /> tag offers a nice way to organize the content of your XML files. If " +
+            "you’re making a complex layout and the XML gets too big, try creating different parts " +
+            "using includes. The XML becomes easier to read and more organized.\n" +
+            "ViewStub is an excellent class to lazy load your views. Whenever you’re hiding a " +
+            "view and making it visible, depending on the context, try using a ViewStub. Perhaps " +
+            "you won’t notice the performance boost with only one view, but you will if the view has " +
+            "a large view hierarchy."
+)
 @HackDescription("Using lazy loading and avoiding replication")
 class Hack2Fragment : BaseHackFragment() {
     override val contentLayoutId: Int = R.layout.hack2_content

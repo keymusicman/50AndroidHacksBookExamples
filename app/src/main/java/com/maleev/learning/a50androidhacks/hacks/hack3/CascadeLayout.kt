@@ -1,4 +1,4 @@
-package com.maleev.learning.a50androidhacks.hacks
+package com.maleev.learning.a50androidhacks.hacks.hack3
 
 import android.content.Context
 import android.util.AttributeSet
@@ -10,13 +10,15 @@ import com.maleev.learning.a50androidhacks.R
 import com.maleev.learning.a50androidhacks.utils.obtainStyledAttributes
 
 class CascadeLayout : ViewGroup {
-    var horizontalSpacing: Int = DefaultHorizontalSpacing
+    var horizontalSpacing: Int =
+        DefaultHorizontalSpacing
         set(value) {
             field = value
             requestLayout()
         }
 
-    var verticalSpacing: Int = DefaultVerticalSpacing
+    var verticalSpacing: Int =
+        DefaultVerticalSpacing
         set(value) {
             field = value
             requestLayout()
@@ -79,13 +81,19 @@ class CascadeLayout : ViewGroup {
     }
 
     override fun generateDefaultLayoutParams(): ViewGroup.LayoutParams =
-        LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+        LayoutParams(
+            WRAP_CONTENT,
+            WRAP_CONTENT
+        )
 
     override fun generateLayoutParams(attrs: AttributeSet): ViewGroup.LayoutParams =
         LayoutParams(context, attrs)
 
     override fun generateLayoutParams(p: ViewGroup.LayoutParams): ViewGroup.LayoutParams =
-        LayoutParams(p.width, p.height)
+        LayoutParams(
+            p.width,
+            p.height
+        )
 
     class LayoutParams : ViewGroup.LayoutParams {
         var x: Int = 0

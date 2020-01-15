@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.maleev.learning.a50androidhacks.adapter.HackInfoVO
 import com.maleev.learning.a50androidhacks.adapter.HackListAdapter
-import com.maleev.learning.a50androidhacks.hacks.Hack1Fragment
-import com.maleev.learning.a50androidhacks.hacks.Hack2Fragment
-import com.maleev.learning.a50androidhacks.hacks.Hack3Fragment
-import com.maleev.learning.a50androidhacks.hacks.Hack4Fragment
+import com.maleev.learning.a50androidhacks.hacks.hack1.Hack1Fragment
+import com.maleev.learning.a50androidhacks.hacks.hack2.Hack2Fragment
+import com.maleev.learning.a50androidhacks.hacks.hack3.Hack3Fragment
+import com.maleev.learning.a50androidhacks.hacks.hack4.Hack4Fragment
 
 class HackListFragment : Fragment() {
 
