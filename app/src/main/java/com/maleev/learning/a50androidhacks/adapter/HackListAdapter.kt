@@ -22,6 +22,18 @@ class HackListAdapter(
         return LayoutInflater.from(parent.context).inflate(R.layout.layout_hack_item, parent, false)
             .let {
                 HackListViewHolder(it)
+                    .apply {
+                        tvExpandBottomLine.setOnClickListener {
+                            val hack = hacks[adapterPosition]
+                            hack.isExpanded = !hack.isExpanded
+                            notifyItemChanged(adapterPosition)
+                        }
+
+                        itemView.setOnClickListener {
+                            val hack = hacks[adapterPosition]
+                            onClickHack(hack.hackInfo)
+                        }
+                    }
             }
     }
 
@@ -36,24 +48,16 @@ class HackListAdapter(
 
         holder.tvExpandBottomLine.hide()
         holder.layoutBottomLine.hide()
-        holder.tvExpandBottomLine.setOnClickListener(null)
-
         holder.layoutBottomLine.removeAllViews()
+
         hack.hackInfo.bottomLineProvider?.run {
             holder.tvExpandBottomLine.show()
             onCreateBottomLineView(holder.layoutBottomLine).run {
                 holder.layoutBottomLine.addView(this)
             }
 
-            holder.tvExpandBottomLine.setOnClickListener {
-                hack.isExpanded = !hack.isExpanded
-                notifyItemChanged(position)
-            }
-
             holder.layoutBottomLine.setVisible(hack.isExpanded)
         }
-
-        holder.itemView.setOnClickListener { onClickHack(hack.hackInfo) }
 
     }
 }
