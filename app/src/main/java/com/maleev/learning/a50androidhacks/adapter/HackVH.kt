@@ -13,4 +13,5 @@ class HackVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val tvHackDescription: TextView by lazy { itemView.findViewById<TextView>(R.id.tvHackDescription) }
     val tvExpandBottomLine: TextView by lazy { itemView.findViewById<TextView>(R.id.tvExpandBottomLine) }
     val layoutBottomLine: ViewGroup by lazy { itemView.findViewById<ViewGroup>(R.id.layoutBottomLine) }
+    val viewNotReady: View by lazy { itemView.findViewById<View>(R.id.notReadyLabel) }
 }

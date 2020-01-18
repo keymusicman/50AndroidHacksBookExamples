@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingLeft="18dp"
+    android:paddingTop="4dp"
     android:paddingRight="18dp">
 
     <TextView
@@ -14,7 +15,7 @@
         android:layout_gravity="end"
         android:layout_marginTop="-40dp"
         android:textAlignment="center"
-        android:textColor="#948633"
+        android:textColor="@color/titleColor"
         android:textSize="130sp"
         android:textStyle="italic|bold"
         tools:text="1" />
@@ -46,7 +47,7 @@
                 android:paddingTop="4dp"
                 android:paddingRight="12dp"
                 android:textAlignment="textEnd"
-                android:textColor="#135C02"
+                android:textColor="@color/subtitleColor"
                 android:textStyle="italic"
                 tools:text="Working your way around layouts" />
 
