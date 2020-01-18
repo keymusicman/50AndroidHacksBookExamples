@@ -11,6 +11,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         showFragment(HackListFragment.newInstance())
+
+        title = "50 Android Hacks - Book Examples"
     }
 
     fun showFragment(fragment: Fragment) {
