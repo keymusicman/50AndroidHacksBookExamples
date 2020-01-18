@@ -2,16 +2,16 @@ package com.maleev.learning.a50androidhacks.adapter
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.RecyclerView
-import com.maleev.learning.a50androidhacks.HackInfo
+import com.maleev.learning.a50androidhacks.models.Hack
 import com.maleev.learning.a50androidhacks.utils.Binder
 import com.maleev.learning.a50androidhacks.utils.hide
 import com.maleev.learning.a50androidhacks.utils.setVisible
 import com.maleev.learning.a50androidhacks.utils.show
 
-class HackInfoBinder(val onClick: (HackInfo) -> Unit) : Binder<HackInfoVH, HackInfoVO>() {
+class HackBinder(val onClick: (Hack) -> Unit) : Binder<HackVH, HackVO>() {
 
     @SuppressLint("SetTextI18n")
-    override fun bind(holder: HackInfoVH, data: HackInfoVO, adapter: RecyclerView.Adapter<*>) {
+    override fun bind(holder: HackVH, data: HackVO, adapter: RecyclerView.Adapter<*>) {
 
         holder.tvHackNumber.text = "Hack ${data.hackInfo.number}"
         holder.tvHackDescription.text = data.hackInfo.description

@@ -1,4 +1,4 @@
-package com.maleev.learning.a50androidhacks
+package com.maleev.learning.a50androidhacks.models
 
 import androidx.fragment.app.Fragment
 import com.maleev.learning.a50androidhacks.adapter.BottomLineProvider
@@ -9,7 +9,7 @@ import kotlin.reflect.full.companionObjectInstance
 import kotlin.reflect.full.findAnnotation
 import kotlin.reflect.full.functions
 
-class HackInfo(
+class Hack(
     val number: Int,
     val description: String,
     val chapterNumber: Int,
@@ -17,8 +17,8 @@ class HackInfo(
     val creator: () -> Fragment
 )
 
-val toHackInfo: KClass<*>.() -> HackInfo = {
-    HackInfo(
+val toHack: KClass<*>.() -> Hack = {
+    Hack(
         getNumber(),
         getDescription(),
         getChapter(),
