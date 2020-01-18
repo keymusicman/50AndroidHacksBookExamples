@@ -7,9 +7,11 @@ import android.widget.TextView
 import com.maleev.learning.a50androidhacks.R
 import com.maleev.learning.a50androidhacks.hacks.BaseHackFragment
 import com.maleev.learning.a50androidhacks.utils.annotations.HackBottomLineText
+import com.maleev.learning.a50androidhacks.utils.annotations.HackChapter
 import com.maleev.learning.a50androidhacks.utils.annotations.HackDescription
 import com.maleev.learning.a50androidhacks.utils.annotations.HackNumber
 
+@HackChapter(1)
 @HackNumber(2)
 @HackBottomLineText(
     "The <include /> tag is a useful tool to order your layout. If you already created something with the Fragment class, you’ll notice that using includes is almost the same " +

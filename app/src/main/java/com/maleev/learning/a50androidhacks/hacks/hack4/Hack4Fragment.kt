@@ -6,9 +6,11 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.maleev.learning.a50androidhacks.R
 import com.maleev.learning.a50androidhacks.utils.annotations.HackBottomLineText
+import com.maleev.learning.a50androidhacks.utils.annotations.HackChapter
 import com.maleev.learning.a50androidhacks.utils.annotations.HackDescription
 import com.maleev.learning.a50androidhacks.utils.annotations.HackNumber
 
+@HackChapter(1)
 @HackNumber(4)
 @HackBottomLineText(
     "Although the settings framework allows you to add some custom behavior, you need to " +

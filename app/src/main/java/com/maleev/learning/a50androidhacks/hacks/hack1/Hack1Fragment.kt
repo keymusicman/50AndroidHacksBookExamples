@@ -8,9 +8,11 @@ import android.widget.TextView
 import com.maleev.learning.a50androidhacks.R
 import com.maleev.learning.a50androidhacks.hacks.BaseHackFragment
 import com.maleev.learning.a50androidhacks.utils.annotations.HackBottomLineText
+import com.maleev.learning.a50androidhacks.utils.annotations.HackChapter
 import com.maleev.learning.a50androidhacks.utils.annotations.HackDescription
 import com.maleev.learning.a50androidhacks.utils.annotations.HackNumber
 
+@HackChapter(1)
 @HackNumber(1)
 @HackBottomLineText(
     "Using LinearLayout’s weight is important when you want to distribute the available " +

@@ -1,40 +1,26 @@
 package com.maleev.learning.a50androidhacks.utils
 
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 
-class GenericAdapter<TItemType, TViewHolder : RecyclerView.ViewHolder>(
-    @LayoutRes private val resourceId: Int,
-    private val items: List<TItemType>,
-    private val viewHolderCreator: (itemView: View) -> TViewHolder,
-    private val onBindViewHolder: (TViewHolder, TItemType) -> Unit
-) : RecyclerView.Adapter<TViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(resourceId, parent, false)
-        return viewHolderCreator(view)
+class GenericAdapter(
+    private val items: List<Any>,
+    private val binderHolders: List<BinderHolder<*, *>>
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    override fun getItemViewType(position: Int): Int {
+        return binderHolders.indexOfFirst { it.canHandleType(items[position]) }
     }
 
-    override fun getItemCount(): Int {
-        return items.size
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
+        binderHolders[viewType].createViewHolder(parent)
 
-    override fun onBindViewHolder(holder: TViewHolder, position: Int) {
-        onBindViewHolder(holder, items[position])
-    }
-}
+    override fun getItemCount(): Int = items.size
 
-inline fun <TItemType, reified TViewHolder : RecyclerView.ViewHolder> genericAdapter(
-    @LayoutRes resourceId: Int,
-    items: List<TItemType>,
-    noinline onBindViewHolder: (TViewHolder, TItemType) -> Unit
-): GenericAdapter<*, *> {
-    return GenericAdapter(
-        resourceId,
-        items,
-        { itemView -> TViewHolder::class.constructors.first().call(itemView) },
-        onBindViewHolder
-    )
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        binderHolders.first { it.canHandleType(items[position]) }.binder.bindView(
+            holder,
+            items[position],
+            this
+        )
+    }
 }

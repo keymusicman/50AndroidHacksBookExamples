@@ -7,12 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.maleev.learning.a50androidhacks.adapter.HackInfoBinder
 import com.maleev.learning.a50androidhacks.adapter.HackInfoVO
-import com.maleev.learning.a50androidhacks.adapter.HackListAdapter
 import com.maleev.learning.a50androidhacks.hacks.hack1.Hack1Fragment
 import com.maleev.learning.a50androidhacks.hacks.hack2.Hack2Fragment
 import com.maleev.learning.a50androidhacks.hacks.hack3.Hack3Fragment
 import com.maleev.learning.a50androidhacks.hacks.hack4.Hack4Fragment
+import com.maleev.learning.a50androidhacks.utils.AdapterBuilder
 
 class HackListFragment : Fragment() {
 
@@ -21,7 +22,9 @@ class HackListFragment : Fragment() {
         Hack2Fragment::class,
         Hack3Fragment::class,
         Hack4Fragment::class
-    ).map(toHackInfo)
+    )
+        .map(toHackInfo)
+        .map { HackInfoVO(it) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,9 +39,15 @@ class HackListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val recycler = view.findViewById<RecyclerView>(R.id.recycler)
-        recycler.adapter = HackListAdapter(hacks.map { HackInfoVO(it) }) { fragmentInfo ->
-            (activity as MainActivity).showFragment(fragmentInfo.creator())
-        }
+        recycler.adapter =
+            AdapterBuilder(hacks)
+                .withItem(HackInfoBinder { hackInfo ->
+                    (activity as MainActivity).showFragment(
+                        hackInfo.creator()
+                    )
+                })
+                .build()
+
     }
 
     companion object {
