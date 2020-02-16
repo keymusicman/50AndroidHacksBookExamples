@@ -8,6 +8,10 @@ import androidx.fragment.app.Fragment
 import com.maleev.learning.a50androidhacks.R
 
 abstract class BaseHackFragment : Fragment() {
+    companion object {
+        const val NO_LAYOUT = -1
+    }
+
     abstract val contentLayoutId: Int
     abstract val settingsLayoutId: Int
 
@@ -18,8 +22,15 @@ abstract class BaseHackFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.hack_layout, container, false)
             .apply {
-                inflater.inflate(contentLayoutId, findViewById(R.id.layoutHackContent), true)
-                inflater.inflate(settingsLayoutId, findViewById(R.id.layoutSettings), true)
+                contentLayoutId.takeIf { it != NO_LAYOUT }
+                    ?.let {
+                        inflater.inflate(it, findViewById(R.id.layoutHackContent), true)
+                    }
+
+                settingsLayoutId.takeIf { it != NO_LAYOUT }
+                    ?.let {
+                        inflater.inflate(it, findViewById(R.id.layoutSettings), true)
+                    }
             }
     }
 }
